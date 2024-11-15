@@ -5,6 +5,7 @@
 
 int main()
 {
+	setbuf(stdout,NULL);
 	int bc,x;
 
 	/* seed the randomizer */

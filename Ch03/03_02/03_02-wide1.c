@@ -1,5 +1,6 @@
 #include <locale.h>
 #include <wchar.h>
+#include <stdio.h>
 
 int main()
 {
@@ -7,7 +8,13 @@ int main()
 	int x;
 
 	/* first, set the locale */
-    setlocale(LC_ALL,"en_US.UTF-8");
+	char *r;
+	r = setlocale(LC_ALL,"en_US.UTF-8");
+    if( r==NULL )
+    {
+        fprintf(stderr,"Unable to set locale\n try.. \"sudo locale-gen en_US.UTF-8\"..\n");
+        return(1);
+    }
 
 	/* output each wide character */
 	for(x=0;x<4;x++)
